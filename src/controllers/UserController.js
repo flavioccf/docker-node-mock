@@ -11,6 +11,38 @@ const Project = require('../models/Project');
 router.get("/", (req, res) => res.send('USERS ROUTES'));
 
 // FIND ONE
+/**
+ * @swagger
+ * /users/findOne/{id}:
+ *   get:
+ *    summary: Get a name message
+ *    parameters:
+ *    - in: path
+ *      name: id
+ *      schema:
+ *        type: integer
+ *      required: true
+ *    description: Use to return your name with a message
+ *    responses:
+ *       '200':
+ *         description: A single user.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     id:
+ *                       type: integer
+ *                       description: The user ID.
+ *                       example: 0
+ *                     name:
+ *                       type: string
+ *                       description: The user's name.
+ *                       example: Leanne Graham
+ */
 router.get("/findOne/:id", async (req, res) => {
   const id = (req.params.id ? req.params.id : null);
   try {
